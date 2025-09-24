@@ -1,0 +1,30 @@
+{% extends 'bookings/base.html' %}
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+<h2>My Bookings</h2>
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Seats Booked</th>
+            <th>Status</th>
+            <th>Booking Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.event.title }}</td>
+            <td>{{ booking.event.date }}</td>
+            <td>{{ booking.event.location }}</td>
+            <td>{{ booking.seats_booked }}</td>
+            <td>{{ booking.status }}</td>
+            <td>{{ booking.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
